@@ -1,0 +1,71 @@
+<html>
+	<head>
+		<title> Even odd finder </title>
+		<style> 
+			*{font-size:50px;font-family:Cambria;}
+			body{background-color:linen;}
+		</style> 
+  	</head>
+	<body>
+	 	<center>
+	   		<h1> Even or odd finder </h1>
+
+	   		<form onsubmit="find()">
+	   			<input type="number" id="num" placeholder="Enter an integer">
+	    			<br><br>
+
+	   			<input type="submit" value="M1"> 
+	   			<input type="submit" value="M2">
+	   			<input type="submit" value="M3">
+			</form>
+
+	   		<h2 id="msg"/>
+	
+			<script>
+			function find()
+				{
+				event.preventDefault();
+				let num= document.getElementById("num");
+				let msg= document.getElementById("msg");
+				let action=document.activeElement.value;
+
+				if (num.value ==="")
+					{
+					alert("You did not enter integer")
+					msg.innerHTML="";
+					num.focus();
+					return;
+					}
+				let n=parseInt(num.value);
+				if (action === "M1")
+					{	
+	  				let ans = n%2 === 0 ? "even":"odd";
+	  				msg.innerHTML= "M1 ==> "+ans;
+					}
+				else if(action === "M2")
+					{	
+	  				let ans= "";
+					if(n%2 ===0)
+					ans="even";
+					else 
+					ans="odd";
+
+	  				msg.innerHTML="M2 ==> "+ans;
+					}
+				else if(action === "M3")
+					{	
+	  				let ans= "";
+					switch(n%2)
+						{
+						case 0  : ans = "even"; break;
+						default	: ans = "odd" ; break;
+						}
+
+	  				msg.innerHTML="M3 ==> "+ans;
+					}
+
+				}	
+			</script> 
+		</center>
+	</body>
+</html>
